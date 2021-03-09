@@ -1,0 +1,203 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$build/default/production/main.o
+vectorReset CODE 0 0 0 1 2
+loopPrin code 0 0 0 148 2
+udata_bank0 BANK0 1 20 20 11 1
+vectorINT code 0 0 0 1D 2
+udata_shr COMMON 1 70 70 2 1
+config CONFIG 4 2007 2007 2 2
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 31-6F 1
+RAM A0-EF 1
+RAM 110-16F 1
+RAM 190-1EF 1
+BANK0 31-6F 1
+BANK1 A0-EF 1
+BANK2 110-16F 1
+BANK3 190-1EF 1
+CONST 148-1FFF 2
+ENTRY 148-1FFF 2
+IDLOC 2000-2003 2
+CODE 148-1FFF 2
+COMMON 72-7F 1
+EEDATA 2100-21FF 2
+STRCODE 148-1FFF 2
+STRING 148-1FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$build/default/production/main.o
+0 loopPrin code >171:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+100 loopPrin code >173:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+100 loopPrin code >174:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+116 loopPrin code >175:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+123 loopPrin code >176:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+133 loopPrin code >177:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+135 loopPrin code >178:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+136 loopPrin code >180:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+136 loopPrin code >181:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+137 loopPrin code >182:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+137 loopPrin code >183:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+138 loopPrin code >184:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+139 loopPrin code >185:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+13A loopPrin code >186:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+13B loopPrin code >187:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+13C loopPrin code >188:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+13D loopPrin code >189:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+13E loopPrin code >191:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+13E loopPrin code >192:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+140 loopPrin code >193:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+141 loopPrin code >194:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+142 loopPrin code >195:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+143 loopPrin code >196:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+144 loopPrin code >198:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+144 loopPrin code >199:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+145 loopPrin code >200:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+146 loopPrin code >201:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+147 loopPrin code >202:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+0 vectorINT code >133:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+4 vectorINT code >134:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+4 vectorINT code >135:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+5 vectorINT code >136:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+6 vectorINT code >137:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+7 vectorINT code >139:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+8 vectorINT code >140:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+9 vectorINT code >141:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+A vectorINT code >143:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+A vectorINT code >144:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+B vectorINT code >145:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+C vectorINT code >146:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+D vectorINT code >148:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+D vectorINT code >149:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+E vectorINT code >150:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+F vectorINT code >151:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+10 vectorINT code >152:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+11 vectorINT code >153:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+12 vectorINT code >154:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+13 vectorINT code >155:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+14 vectorINT code >157:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+14 vectorINT code >158:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+15 vectorINT code >159:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+16 vectorINT code >160:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+17 vectorINT code >161:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+18 vectorINT code >162:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+19 vectorINT code >164:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+19 vectorINT code >165:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1A vectorINT code >166:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1B vectorINT code >167:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1C vectorINT code >168:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+0 vectorReset CODE >129:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+0 vectorReset CODE >130:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__Hspace_0 148 0 ABS 0 - -
+__Hspace_1 72 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__Hspace_4 4010 0 ABS 0 - -
+__Hudata_bank0 0 0 ABS 0 udata_bank0 -
+__Hudata_bank1 0 0 ABS 0 udata_bank1 -
+__Hudata_bank2 0 0 ABS 0 udata_bank2 -
+__Hudata_bank3 0 0 ABS 0 udata_bank3 -
+MUX 21 0 BANK0 1 udata_bank0 build/default/production/main.o
+CONT0 2F 0 BANK0 1 udata_bank0 build/default/production/main.o
+__Hedata 0 0 ABS 0 edata -
+__Hudata 0 0 ABS 0 udata -
+__Hconfig 4012 0 CONFIG 4 config -
+__Ledata 0 0 ABS 0 edata -
+__Ludata 0 0 ABS 0 udata -
+__Hcode 0 0 ABS 0 code -
+__Hdata 0 0 ABS 0 data -
+__Lcode 0 0 ABS 0 code -
+__Ldata 0 0 ABS 0 data -
+__S0 0 0 ABS 0 - -
+__S1 72 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+__LloopPrin 0 0 code 0 loopPrin -
+__LvectorReset 0 0 ABS 0 vectorReset -
+__Lconfig 0 0 CONFIG 4 config -
+BANDERAS 20 0 BANK0 1 udata_bank0 build/default/production/main.o
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__Lspace_4 0 0 ABS 0 - -
+__HloopPrin 290 0 code 0 loopPrin -
+__Ludata_bank0 0 0 ABS 0 udata_bank0 -
+__Ludata_bank1 0 0 ABS 0 udata_bank1 -
+__Ludata_bank2 0 0 ABS 0 udata_bank2 -
+__Ludata_bank3 0 0 ABS 0 udata_bank3 -
+__HvectorReset 0 0 ABS 0 vectorReset -
+__HvectorINT 3A 0 code 0 vectorINT -
+__Hudata_shr 0 0 ABS 0 udata_shr -
+__LvectorINT 0 0 code 0 vectorINT -
+__Ludata_shr 0 0 ABS 0 udata_shr -
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+udata_bank0 1 20 20 11 1
+udata_shr 1 70 70 2 1
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES
