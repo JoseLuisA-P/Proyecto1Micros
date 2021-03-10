@@ -2514,6 +2514,9 @@ CONT2: DS 1 ;conteo del timmer 2
 DIV1: DS 1 ;dividendo del semaforo 1
 DEC1: DS 1 ;decenas del semaforo 1
 UN1: DS 1 ;unidades del semaforo 1
+DIV2: DS 1 ;dividendo del semaforo 2
+DEC2: DS 1 ;decenas del semaforo 2
+UN2: DS 1 ;unidades del semaforo 2
 ;Global para ver las variables en el simulador de MPLAB
 GLOBAL BANDERAS,MUX,CONT0,S1TEMP,S2TEMP,S3TEMP,S1RO,S2RO,S3RO,S1TI,S2TI,S3TI
 GLOBAL DEC1,UN1
@@ -2606,7 +2609,7 @@ ORG 0004h
     RLF MUX ;mueve una posicion el valor del mux
     ;BTFSC STATUS,0 ;mira si hay carry, para reiniciar el rotado
     ;call arrmux ;arregla la rotacion del mux
-    BTFSC MUX,2
+    BTFSC MUX,4
     call arrtemp
     BSF BANDERAS,0
     BCF PIR1,1 ;limpia bandera timmer2
@@ -2627,7 +2630,7 @@ ORG 0004h
     BCF STATUS,0 ;elimina el carry
     CLRF MUX ;coloca en 0 el mux y vuelve a encender el primero
     BSF MUX,0
-    return
+    RETURN
 ;--------------------------MAIN, REINCIO Y LOOP PRINCIPAL-----------------------
 Psect loopPrin, class = code, delta = 2, abs
 ORG 0100h
@@ -2688,6 +2691,9 @@ loop:
     MOVF S1TEMP,W ;se mueve el temporal de 1 a W y se mira si es 0
     BTFSC STATUS,2
     CALL CARGARTEMP1 ;carga verde o rojo a temp1
+    MOVF S2TEMP,W ;se mueve el temporal de 1 a W y se mira si es 0
+    BTFSC STATUS,2
+    CALL CARGARTEMP2 ;carga verde o rojo a temp1
     MOVLW 100
     XORWF CONT0,W ;mira si el timmer ya llego a 1 segundo
     BTFSC STATUS,2 ;mira si la operacion no es cero
@@ -2695,6 +2701,8 @@ loop:
     ;limpia las variables de division para evitar acumulado
     CLRF DEC1
     CLRF UN1
+    CLRF DEC2
+    CLRF UN2
     CALL DIVISION ;llama la rutina de division de los numeros
     BTFSC BANDERAS,0
     CALL MULTIPLEX ;llama la rutina de multiplexado
@@ -2719,8 +2727,21 @@ CARGARTEMP1:
     BSF BANDTIEMPO,0
     RETURN
 
+CARGARTEMP2:
+    BTFSS BANDTIEMPO,1
+    GOTO $+5
+    MOVF S2TI,W
+    MOVWF S2TEMP
+    BCF BANDTIEMPO,1
+    RETURN
+    MOVF S2RO,W
+    MOVWF S2TEMP
+    BSF BANDTIEMPO,1
+    RETURN
+
 REGRESIVO:
     DECF S1TEMP
+    DECF S2TEMP
     CLRF CONT0
     RETURN
 
@@ -2729,6 +2750,10 @@ MULTIPLEX:
     CALL MULTI1
     BTFSC MUX,1
     CALL MULTI2
+    BTFSC MUX,2
+    CALL MULTI3
+    BTFSC MUX,3
+    CALL MULTI4
     BCF BANDERAS,0
     RETURN
 
@@ -2750,6 +2775,24 @@ MULTI2:
     MOVWF PORTC
     RETURN
 
+MULTI3:
+    CLRF PORTC
+    MOVF UN2,W
+    CALL tabla
+    MOVWF PORTD
+    MOVF MUX,W
+    MOVWF PORTC
+    RETURN
+
+MULTI4:
+    CLRF PORTC
+    MOVF DEC2,W
+    CALL tabla
+    MOVWF PORTD
+    MOVF MUX,W
+    MOVWF PORTC
+    RETURN
+
 
 DIVISION:
     MOVF S1TEMP,W ;Se divide primero el valor de semaforo 1
@@ -2764,6 +2807,19 @@ DIVISION:
     ADDWF DIV1,F
     MOVF DIV1,W
     MOVWF UN1 ;el remanente se queda en las unidades
+;DIVISION DEL SEGUNDO SEMAFORO
+    MOVF S2TEMP,W ;Se divide primero el valor de semaforo 1
+    MOVWF DIV2
+    INCF DEC2
+    MOVLW 10
+    SUBWF DIV2,F
+    BTFSC STATUS,0 ;mira si no hay carry
+    GOTO $-4 ;si no hay vuelve a restar
+    DECF DEC2 ;si hay carry le quita 1 porque se paso
+    MOVLW 10 ;le suma 10 para que regrese al estado previo
+    ADDWF DIV2,F
+    MOVF DIV2,W
+    MOVWF UN2 ;el remanente se queda en las unidades
     RETURN
 
 END
