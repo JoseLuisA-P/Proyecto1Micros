@@ -2608,7 +2608,7 @@ ORG 0004h
     TIE2:
     BTFSS PIR1,1 ;Mira si es interrupcion del timer2
     GOTO pop
-    BSF CONT2,0
+    BSF BANDERAS,1
     BCF PIR1,1 ;limpia bandera timmer2
 
     pop:
@@ -2671,7 +2671,7 @@ reinicio:
     GOTO loop
 
 loop:
-    BTFSC CONT2,0
+    BTFSC BANDERAS,1
     CALL ARREMUX
     MOVF S1TEMP,W ;se mueve el temporal de 1 a W y se mira si es 0
     BTFSC STATUS,2
@@ -2697,6 +2697,18 @@ loop:
     CALL DIVISION ;llama la rutina de division de los numeros
     BTFSC BANDERAS,0
     CALL MULTIPLEX ;llama la rutina de multiplexado
+    MOVLW 3
+    XORWF S1TEMP,W
+    BTFSC STATUS,2
+    CALL S1LAM
+    MOVLW 3
+    XORWF S2TEMP,W
+    BTFSC STATUS,2
+    CALL S2LAM
+    MOVLW 3
+    XORWF S3TEMP,W
+    BTFSC STATUS,2
+    CALL S3LAM
     GOTO loop
 
 CARGAT0:
@@ -2704,6 +2716,30 @@ CARGAT0:
     MOVLW 99
     MOVWF TMR0
     BCF INTCON,2 ;Limpiar bandera del TIMER0
+    RETURN
+
+S1LAM:
+    BTFSC BANDTIEMPO,0 ;mira si esta en rojo
+    RETURN
+    BCF PORTA,2
+    BSF PORTA,1
+    BCF PORTA,0
+    RETURN
+
+S2LAM:
+    BTFSC BANDTIEMPO,1 ;mira si esta en rojo
+    RETURN
+    BCF PORTA,5
+    BSF PORTA,4
+    BCF PORTA,3
+    RETURN
+
+S3LAM:
+    BTFSC BANDTIEMPO,2 ;mira si esta en rojo
+    RETURN
+    BCF PORTE,2
+    BSF PORTE,1
+    BCF PORTE,0
     RETURN
 
 CARGARTEMP1:
@@ -2886,7 +2922,7 @@ DIVISION:
 
 ARREMUX:
     BSF BANDERAS,0 ;bandera que indica que se puede multiplexar
-    CLRF CONT2
+    BCF BANDERAS,1
     RLF MUX ;mueve a la izquierda el bit encendido
     BTFSC STATUS,0
     GOTO $+2
