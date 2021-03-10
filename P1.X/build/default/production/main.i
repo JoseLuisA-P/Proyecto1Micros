@@ -2510,9 +2510,13 @@ S3RO: DS 1 ;tiempo en rojo de los semaforos 3
 ;--------------Variables para los contadores------------------------------------
 CONT0: DS 1 ;conteo del timmer 0
 CONT2: DS 1 ;conteo del timmer 2
+;---------------DECENAS Y UNIDADES DEL CONTADOR---------------------------------
+DIV1: DS 1 ;dividendo del semaforo 1
+DEC1: DS 1 ;decenas del semaforo 1
+UN1: DS 1 ;unidades del semaforo 1
 ;Global para ver las variables en el simulador de MPLAB
-GLOBAL BANDERAS,MUX,CONT0
-
+GLOBAL BANDERAS,MUX,CONT0,S1TEMP,S2TEMP,S3TEMP,S1RO,S2RO,S3RO,S1TI,S2TI,S3TI
+GLOBAL DEC1,UN1
 ;------------------------------------Macros-------------------------------------
 configPuertos MACRO ;configurar los puertos
     BANKSEL ANSEL
@@ -2597,10 +2601,14 @@ ORG 0004h
     TIE2:
     BTFSS PIR1,1 ;Mira si es interrupcion del timer2
     GOTO pop
-    BCF STATUS,0
-    RLF MUX
-    BTFSC STATUS,0
-    call arrmux
+    BCF STATUS,0 ;elimina el carry presente
+    INCF CONT2
+    RLF MUX ;mueve una posicion el valor del mux
+    ;BTFSC STATUS,0 ;mira si hay carry, para reiniciar el rotado
+    ;call arrmux ;arregla la rotacion del mux
+    BTFSC MUX,2
+    call arrtemp
+    BSF BANDERAS,0
     BCF PIR1,1 ;limpia bandera timmer2
 
     pop:
@@ -2610,31 +2618,86 @@ ORG 0004h
     SWAPF W_TEMP,W
     RETFIE ;termina la rutina de interrupcion
 
-    arrmux:
-    BCF STATUS,0
+    arrtemp:
     CLRF MUX
+    BSF MUX,0
+    RETURN
+
+    arrmux:
+    BCF STATUS,0 ;elimina el carry
+    CLRF MUX ;coloca en 0 el mux y vuelve a encender el primero
     BSF MUX,0
     return
 ;--------------------------MAIN, REINCIO Y LOOP PRINCIPAL-----------------------
 Psect loopPrin, class = code, delta = 2, abs
 ORG 0100h
 
+tabla:
+    CLRF PCLATH ;Colocar el PCLATH en 01 para seleccionar la
+    BSF PCLATH,0 ;pagina correcta
+    ADDWF PCL ;sumar segmento + PCL para seleccionar el valor adecuado
+    retlw 00111111B ;0
+    retlw 00000110B ;1
+    retlw 01011011B ;2
+    retlw 01001111B ;3
+    retlw 01100110B ;4
+    retlw 01101101B ;5
+    retlw 01111101B ;6
+    retlw 00000111B ;7
+    retlw 01111111B ;8
+    retlw 01100111B ;9
+    retlw 01110111B ;A
+    retlw 01111100B ;b
+    retlw 00111001B ;C
+    retlw 01011110B ;d
+    retlw 01111001B ;E
+    retlw 01110001B ;F
+
 main:
-    configPuertos
-    configINT
-    configOSC
-    configT2
+    configPuertos ;configurar los puertos
+    configINT ;configurar las interrupciones
+    configOSC ;configurar el oscilador
+    configT2 ;configurar el timmer2
+    MOVLW 10 ;colocar en 10 las variables iniciales de cambio
+    MOVWF S1CAM
+    MOVWF S2CAM
+    MOVWF S3CAM
     GOTO reinicio
 
 reinicio:
+    MOVF S1CAM,W ;Carga el cambio de S1 a W y luego a temporal y conteo
+    ;MOVWF S1TEMP
+    MOVWF S1TI
+    MOVWF S2RO ;se coloca en los rojos 2 y 3 el valor que tiene 1 en el
+    MOVWF S3RO ;cambio
+    MOVF S2CAM,W ;carga el valor de cambio de S2 a W y luego a su temporal
+    ;MOVWF S2TEMP ;y a su conteo
+    MOVWF S2TI
+    MOVWF S1RO ;carga este valor en el rojo 1
+    ADDWF S3RO,F ;se le suma este valor a el rojo 3
+    MOVF S3CAM,W ;carga el valor de cambio de S3 a W y luego a su temporal
+    ;MOVWF S3TEMP ;y a su conteo
+    MOVWF S3TI
+    ADDWF S2RO,F ;le suma este valor al rojo del 2
+    ADDWF S1RO,F ;le suma este valor al rojo del 1
+    CLRF BANDTIEMPO ;limpia las banderas de conteo en rojo
+    BSF BANDTIEMPO,0 ;indica que el semaforo 1 comienza en verde
     GOTO loop
+
 loop:
+    MOVF S1TEMP,W ;se mueve el temporal de 1 a W y se mira si es 0
+    BTFSC STATUS,2
+    CALL CARGARTEMP1 ;carga verde o rojo a temp1
     MOVLW 100
     XORWF CONT0,W ;mira si el timmer ya llego a 1 segundo
     BTFSC STATUS,2 ;mira si la operacion no es cero
-    CALL toogle
-    MOVF MUX,W
-    MOVWF PORTD
+    CALL REGRESIVO
+    ;limpia las variables de division para evitar acumulado
+    CLRF DEC1
+    CLRF UN1
+    CALL DIVISION ;llama la rutina de division de los numeros
+    BTFSC BANDERAS,0
+    CALL MULTIPLEX ;llama la rutina de multiplexado
     GOTO loop
 
 CARGAT0:
@@ -2644,10 +2707,63 @@ CARGAT0:
     BCF INTCON,2 ;Limpiar bandera del TIMER0
     RETURN
 
-toogle:
+CARGARTEMP1:
+    BTFSS BANDTIEMPO,0
+    GOTO $+5
+    MOVF S1TI,W
+    MOVWF S1TEMP
+    BCF BANDTIEMPO,0
+    RETURN
+    MOVF S1RO,W
+    MOVWF S1TEMP
+    BSF BANDTIEMPO,0
+    RETURN
+
+REGRESIVO:
+    DECF S1TEMP
     CLRF CONT0
-    MOVLW 1
-    XORWF PORTE,F
+    RETURN
+
+MULTIPLEX:
+    BTFSC MUX,0
+    CALL MULTI1
+    BTFSC MUX,1
+    CALL MULTI2
+    BCF BANDERAS,0
+    RETURN
+
+MULTI1:
+    CLRF PORTC
+    MOVF UN1,W
+    CALL tabla
+    MOVWF PORTD
+    MOVF MUX,W
+    MOVWF PORTC
+    RETURN
+
+MULTI2:
+    CLRF PORTC
+    MOVF DEC1,W
+    CALL tabla
+    MOVWF PORTD
+    MOVF MUX,W
+    MOVWF PORTC
+    RETURN
+
+
+DIVISION:
+    MOVF S1TEMP,W ;Se divide primero el valor de semaforo 1
+    MOVWF DIV1
+    INCF DEC1
+    MOVLW 10
+    SUBWF DIV1,F
+    BTFSC STATUS,0 ;mira si no hay carry
+    GOTO $-4 ;si no hay vuelve a restar
+    DECF DEC1 ;si hay carry le quita 1 porque se paso
+    MOVLW 10 ;le suma 10 para que regrese al estado previo
+    ADDWF DIV1,F
+    MOVF DIV1,W
+    MOVWF UN1 ;el remanente se queda en las unidades
     RETURN
 
 END
