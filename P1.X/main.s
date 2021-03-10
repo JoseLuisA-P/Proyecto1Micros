@@ -153,6 +153,7 @@ ORG 0004h
     
     TIE0:
     INCF    CONT0
+    INCF    CONT2
     BCF	    T0IF
     call    CARGAT0
     
@@ -237,6 +238,10 @@ loop:
     XORWF   CONT0,W	;mira si el timmer ya llego a 1 segundo
     BTFSC   STATUS,2	;mira si la operacion no es cero
     CALL    REGRESIVO
+    MOVLW   20
+    XORWF   CONT2,W
+    BTFSC   STATUS,2
+    BSF	    BANDERAS,5	    ;Habilita el toogle cada cierto tiempo
     ;limpia las variables de division para evitar acumulado
     CLRF    DEC1
     CLRF    UN1
@@ -260,6 +265,15 @@ loop:
     XORWF   S3TEMP,W
     BTFSC   STATUS,2
     CALL    S3LAM
+    MOVLW   6
+    XORWF   S1TEMP,W
+    BTFSC   STATUS,2
+    CALL    S1TOOGE
+    BTFSC   BANDERAS,2	
+    CALL    S1TOOG
+    BTFSC   BANDERAS,5
+    CLRF    CONT2		;reinicia el contador luego de haber contado
+    BCF	    BANDERAS,5		;Luego de hacer el toogle las apaga
     GOTO    loop
 
 CARGAT0:
@@ -269,16 +283,32 @@ CARGAT0:
     BCF	    INTCON,2	;Limpiar bandera del TIMER0
     RETURN
 
-S1LAM:
-    BTFSC   BANDTIEMPO,0    ;mira si esta en rojo
+S1TOOGE:
+    BTFSS   BANDTIEMPO,0    ;mira si esta en verde
+    BSF	    BANDERAS,2	    ;Activa la bandera de toogle1
     RETURN
+
+S1TOOG:
+    BTFSC   PORTA,2
+    GOTO    $+4
+    BTFSC   BANDERAS,5
+    BSF	    PORTA,2
+    RETURN
+    BTFSC   BANDERAS,5
+    BCF	    PORTA,2
+    RETURN
+    
+S1LAM:
+    BTFSC   BANDTIEMPO,0    ;mira si esta en VERDE
+    RETURN
+    BCF	    BANDERAS,2	    ;Desactiva el toogle
     BCF	    PORTA,2
     BSF	    PORTA,1
     BCF	    PORTA,0
     RETURN
     
 S2LAM:
-    BTFSC   BANDTIEMPO,1    ;mira si esta en rojo
+    BTFSC   BANDTIEMPO,1    ;mira si esta en VERDE
     RETURN
     BCF	    PORTA,5
     BSF	    PORTA,4
@@ -286,7 +316,7 @@ S2LAM:
     RETURN
 
 S3LAM:
-    BTFSC   BANDTIEMPO,2    ;mira si esta en rojo
+    BTFSC   BANDTIEMPO,2    ;mira si esta en VERDE
     RETURN
     BCF	    PORTE,2
     BSF	    PORTE,1
