@@ -199,7 +199,7 @@ main:
     configINT	    ;configurar las interrupciones
     configOSC	    ;configurar el oscilador
     configT2	    ;configurar el timmer2
-    MOVLW   15	    ;colocar en 10 las variables iniciales de cambio
+    MOVLW   10	    ;colocar en 10 las variables iniciales de cambio
     MOVWF   S1CAM
     MOVWF   S2CAM
     MOVWF   S3CAM
@@ -271,6 +271,12 @@ loop:
     CALL    S1TOOGE
     BTFSC   BANDERAS,2	
     CALL    S1TOOG
+    MOVLW   6
+    XORWF   S2TEMP,W
+    BTFSC   STATUS,2
+    CALL    S2TOOGE
+    BTFSC   BANDERAS,3	
+    CALL    S2TOOG
     BTFSC   BANDERAS,5
     CLRF    CONT2		;reinicia el contador luego de haber contado
     BCF	    BANDERAS,5		;Luego de hacer el toogle las apaga
@@ -298,6 +304,21 @@ S1TOOG:
     BCF	    PORTA,2
     RETURN
     
+S2TOOGE:
+    BTFSS   BANDTIEMPO,1    ;mira si esta en verde
+    BSF	    BANDERAS,3	    ;Activa la bandera de toogle1
+    RETURN
+
+S2TOOG:
+    BTFSC   PORTA,5
+    GOTO    $+4
+    BTFSC   BANDERAS,5
+    BSF	    PORTA,5
+    RETURN
+    BTFSC   BANDERAS,5
+    BCF	    PORTA,5
+    RETURN
+    
 S1LAM:
     BTFSC   BANDTIEMPO,0    ;mira si esta en VERDE
     RETURN
@@ -310,6 +331,7 @@ S1LAM:
 S2LAM:
     BTFSC   BANDTIEMPO,1    ;mira si esta en VERDE
     RETURN
+    BCF	    BANDERAS,3	    ;desactiva el toogle
     BCF	    PORTA,5
     BSF	    PORTA,4
     BCF	    PORTA,3
