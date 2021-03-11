@@ -277,6 +277,12 @@ loop:
     CALL    S2TOOGE
     BTFSC   BANDERAS,3	
     CALL    S2TOOG
+    MOVLW   6
+    XORWF   S3TEMP,W
+    BTFSC   STATUS,2
+    CALL    S3TOOGE
+    BTFSC   BANDERAS,4	
+    CALL    S3TOOG
     BTFSC   BANDERAS,5
     CLRF    CONT2		;reinicia el contador luego de haber contado
     BCF	    BANDERAS,5		;Luego de hacer el toogle las apaga
@@ -318,6 +324,21 @@ S2TOOG:
     BTFSC   BANDERAS,5
     BCF	    PORTA,5
     RETURN
+
+S3TOOGE:
+    BTFSS   BANDTIEMPO,2    ;mira si esta en verde
+    BSF	    BANDERAS,4	    ;Activa la bandera de toogle1
+    RETURN
+
+S3TOOG:
+    BTFSC   PORTE,2
+    GOTO    $+4
+    BTFSC   BANDERAS,5
+    BSF	    PORTE,2
+    RETURN
+    BTFSC   BANDERAS,5
+    BCF	    PORTE,2
+    RETURN
     
 S1LAM:
     BTFSC   BANDTIEMPO,0    ;mira si esta en VERDE
@@ -340,6 +361,7 @@ S2LAM:
 S3LAM:
     BTFSC   BANDTIEMPO,2    ;mira si esta en VERDE
     RETURN
+    BCF	    BANDERAS,4
     BCF	    PORTE,2
     BSF	    PORTE,1
     BCF	    PORTE,0

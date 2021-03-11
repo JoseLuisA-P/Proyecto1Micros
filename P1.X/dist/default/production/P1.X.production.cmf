@@ -13,7 +13,7 @@
 %PSECTS
 $build/default/production/main.o
 vectorReset CODE 0 0 0 1 2
-loopPrin code 0 0 0 26C 2
+loopPrin code 0 0 0 27E 2
 udata_bank0 BANK0 1 20 20 1A 1
 vectorINT code 0 0 0 17 2
 udata_shr COMMON 1 70 70 2 1
@@ -32,14 +32,14 @@ BANK0 3A-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 26C-1FFF 2
-ENTRY 26C-1FFF 2
+CONST 27E-1FFF 2
+ENTRY 27E-1FFF 2
 IDLOC 2000-2003 2
-CODE 26C-1FFF 2
+CODE 27E-1FFF 2
 COMMON 72-7F 1
 EEDATA 2100-21FF 2
-STRCODE 26C-1FFF 2
-STRING 26C-1FFF 2
+STRCODE 27E-1FFF 2
+STRING 27E-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -159,66 +159,66 @@ $build/default/production/main.o
 194 loopPrin code >281:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 195 loopPrin code >282:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 196 loopPrin code >283:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-197 loopPrin code >285:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-197 loopPrin code >286:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-199 loopPrin code >287:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-19A loopPrin code >288:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-19B loopPrin code >289:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-19C loopPrin code >290:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+197 loopPrin code >284:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+198 loopPrin code >285:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+199 loopPrin code >286:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+19A loopPrin code >287:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+19B loopPrin code >288:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+19C loopPrin code >289:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+19D loopPrin code >291:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 19D loopPrin code >292:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-19D loopPrin code >293:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-19E loopPrin code >294:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-19F loopPrin code >295:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1A0 loopPrin code >297:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1A0 loopPrin code >298:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1A1 loopPrin code >299:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1A2 loopPrin code >300:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1A3 loopPrin code >301:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1A4 loopPrin code >302:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1A5 loopPrin code >303:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+19F loopPrin code >293:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1A0 loopPrin code >294:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1A1 loopPrin code >295:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1A2 loopPrin code >296:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1A3 loopPrin code >298:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1A3 loopPrin code >299:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1A4 loopPrin code >300:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1A5 loopPrin code >301:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1A6 loopPrin code >303:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1A6 loopPrin code >304:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1A7 loopPrin code >305:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1A8 loopPrin code >307:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1A8 loopPrin code >308:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1A9 loopPrin code >309:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1AA loopPrin code >310:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1AB loopPrin code >312:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1AB loopPrin code >313:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1AC loopPrin code >314:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1AD loopPrin code >315:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1AE loopPrin code >316:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1AF loopPrin code >317:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1B0 loopPrin code >318:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1A8 loopPrin code >306:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1A9 loopPrin code >307:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1AA loopPrin code >308:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1AB loopPrin code >309:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1AC loopPrin code >310:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1AD loopPrin code >311:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1AE loopPrin code >313:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1AE loopPrin code >314:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1AF loopPrin code >315:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1B0 loopPrin code >316:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1B1 loopPrin code >318:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1B1 loopPrin code >319:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1B2 loopPrin code >320:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1B3 loopPrin code >322:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1B3 loopPrin code >323:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1B4 loopPrin code >324:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1B5 loopPrin code >325:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1B6 loopPrin code >326:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1B7 loopPrin code >327:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1B8 loopPrin code >328:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1B3 loopPrin code >321:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1B4 loopPrin code >322:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1B5 loopPrin code >323:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1B6 loopPrin code >324:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1B7 loopPrin code >325:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1B8 loopPrin code >326:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1B9 loopPrin code >328:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1B9 loopPrin code >329:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1BA loopPrin code >331:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1BA loopPrin code >332:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1BB loopPrin code >333:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1BA loopPrin code >330:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1BB loopPrin code >331:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1BC loopPrin code >333:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1BC loopPrin code >334:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1BD loopPrin code >335:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1BE loopPrin code >336:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1BF loopPrin code >337:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1C0 loopPrin code >338:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1C1 loopPrin code >340:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1C1 loopPrin code >341:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1C2 loopPrin code >342:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1C3 loopPrin code >343:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1C1 loopPrin code >339:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1C2 loopPrin code >340:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1C3 loopPrin code >341:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1C4 loopPrin code >343:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1C4 loopPrin code >344:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1C5 loopPrin code >345:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1C6 loopPrin code >346:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1C7 loopPrin code >348:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1C7 loopPrin code >349:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1C8 loopPrin code >350:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1C9 loopPrin code >351:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1CA loopPrin code >352:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1C7 loopPrin code >347:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1C8 loopPrin code >348:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1C9 loopPrin code >349:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1CA loopPrin code >350:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1CB loopPrin code >352:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1CB loopPrin code >353:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1CC loopPrin code >354:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1CD loopPrin code >355:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
@@ -226,54 +226,54 @@ $build/default/production/main.o
 1CF loopPrin code >357:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1D0 loopPrin code >358:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1D1 loopPrin code >359:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1D2 loopPrin code >360:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1D3 loopPrin code >361:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1D4 loopPrin code >362:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1D5 loopPrin code >363:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1D6 loopPrin code >364:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1D7 loopPrin code >366:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1D2 loopPrin code >361:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1D2 loopPrin code >362:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1D3 loopPrin code >363:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1D4 loopPrin code >364:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1D5 loopPrin code >365:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1D6 loopPrin code >366:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1D7 loopPrin code >367:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1D8 loopPrin code >368:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1D9 loopPrin code >369:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1DA loopPrin code >370:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1DB loopPrin code >371:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1DC loopPrin code >372:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1DD loopPrin code >373:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1DE loopPrin code >374:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1DF loopPrin code >375:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1E0 loopPrin code >376:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1E1 loopPrin code >377:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1E2 loopPrin code >378:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1E3 loopPrin code >379:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1E4 loopPrin code >380:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1E5 loopPrin code >381:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1E6 loopPrin code >382:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1E7 loopPrin code >383:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1E8 loopPrin code >384:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1E9 loopPrin code >386:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1E9 loopPrin code >387:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1EA loopPrin code >388:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1EB loopPrin code >389:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1EC loopPrin code >390:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1ED loopPrin code >391:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1EE loopPrin code >392:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1EF loopPrin code >393:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1F0 loopPrin code >394:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1F1 loopPrin code >395:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1F2 loopPrin code >396:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1F3 loopPrin code >397:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1F4 loopPrin code >398:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1F5 loopPrin code >399:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1F6 loopPrin code >400:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1F7 loopPrin code >401:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1F8 loopPrin code >402:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1F9 loopPrin code >404:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1D9 loopPrin code >370:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1D9 loopPrin code >371:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1DA loopPrin code >372:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1DB loopPrin code >373:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1DC loopPrin code >374:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1DD loopPrin code >375:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1DE loopPrin code >376:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1DF loopPrin code >377:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1E0 loopPrin code >378:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1E1 loopPrin code >379:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1E2 loopPrin code >380:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1E3 loopPrin code >381:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1E4 loopPrin code >382:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1E5 loopPrin code >383:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1E6 loopPrin code >384:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1E7 loopPrin code >385:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1E8 loopPrin code >386:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1E9 loopPrin code >388:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1E9 loopPrin code >389:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1EA loopPrin code >390:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1EB loopPrin code >391:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1EC loopPrin code >392:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1ED loopPrin code >393:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1EE loopPrin code >394:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1EF loopPrin code >395:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1F0 loopPrin code >396:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1F1 loopPrin code >397:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1F2 loopPrin code >398:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1F3 loopPrin code >399:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1F4 loopPrin code >400:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1F5 loopPrin code >401:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1F6 loopPrin code >402:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1F7 loopPrin code >403:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1F8 loopPrin code >404:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1F9 loopPrin code >405:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1FA loopPrin code >406:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1FB loopPrin code >407:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1FC loopPrin code >408:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1FD loopPrin code >409:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-1FE loopPrin code >411:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1FB loopPrin code >408:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1FB loopPrin code >409:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1FC loopPrin code >410:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+1FD loopPrin code >411:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1FE loopPrin code >412:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 1FF loopPrin code >413:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 200 loopPrin code >414:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
@@ -287,20 +287,20 @@ $build/default/production/main.o
 208 loopPrin code >422:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 209 loopPrin code >423:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 20A loopPrin code >424:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-20B loopPrin code >425:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-20C loopPrin code >426:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-20D loopPrin code >427:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-20E loopPrin code >428:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-20F loopPrin code >429:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-210 loopPrin code >431:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-210 loopPrin code >432:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-211 loopPrin code >433:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-212 loopPrin code >434:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-213 loopPrin code >435:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-214 loopPrin code >436:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-215 loopPrin code >437:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-216 loopPrin code >438:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-217 loopPrin code >440:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+20B loopPrin code >426:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+20B loopPrin code >427:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+20C loopPrin code >428:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+20D loopPrin code >429:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+20E loopPrin code >430:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+20F loopPrin code >431:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+210 loopPrin code >433:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+210 loopPrin code >434:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+211 loopPrin code >435:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+212 loopPrin code >436:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+213 loopPrin code >437:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+214 loopPrin code >438:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+215 loopPrin code >439:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+216 loopPrin code >440:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 217 loopPrin code >441:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 218 loopPrin code >442:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 219 loopPrin code >443:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
@@ -308,43 +308,43 @@ $build/default/production/main.o
 21B loopPrin code >445:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 21C loopPrin code >446:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 21D loopPrin code >447:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-21E loopPrin code >449:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-21E loopPrin code >450:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-21F loopPrin code >451:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-220 loopPrin code >452:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-221 loopPrin code >453:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+21E loopPrin code >448:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+21F loopPrin code >449:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+220 loopPrin code >450:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+221 loopPrin code >451:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+222 loopPrin code >453:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 222 loopPrin code >454:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 223 loopPrin code >455:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 224 loopPrin code >456:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-225 loopPrin code >458:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-225 loopPrin code >459:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-226 loopPrin code >460:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-227 loopPrin code >461:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-228 loopPrin code >462:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+225 loopPrin code >457:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+226 loopPrin code >458:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+227 loopPrin code >459:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+228 loopPrin code >460:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+229 loopPrin code >462:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 229 loopPrin code >463:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 22A loopPrin code >464:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 22B loopPrin code >465:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-22C loopPrin code >467:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-22C loopPrin code >468:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-22D loopPrin code >469:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-22E loopPrin code >470:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-22F loopPrin code >471:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+22C loopPrin code >466:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+22D loopPrin code >467:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+22E loopPrin code >468:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+22F loopPrin code >469:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+230 loopPrin code >471:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 230 loopPrin code >472:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 231 loopPrin code >473:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 232 loopPrin code >474:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-233 loopPrin code >476:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-233 loopPrin code >477:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-234 loopPrin code >478:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-235 loopPrin code >479:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-236 loopPrin code >480:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+233 loopPrin code >475:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+234 loopPrin code >476:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+235 loopPrin code >477:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+236 loopPrin code >478:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+237 loopPrin code >480:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 237 loopPrin code >481:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 238 loopPrin code >482:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 239 loopPrin code >483:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-23A loopPrin code >485:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-23A loopPrin code >486:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-23B loopPrin code >487:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-23C loopPrin code >488:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-23D loopPrin code >489:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+23A loopPrin code >484:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+23B loopPrin code >485:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+23C loopPrin code >486:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+23D loopPrin code >487:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+23E loopPrin code >489:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 23E loopPrin code >490:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 23F loopPrin code >491:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 240 loopPrin code >492:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
@@ -352,47 +352,67 @@ $build/default/production/main.o
 242 loopPrin code >494:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 243 loopPrin code >495:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 244 loopPrin code >496:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-245 loopPrin code >497:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-246 loopPrin code >499:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-247 loopPrin code >500:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-248 loopPrin code >501:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-249 loopPrin code >502:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-24A loopPrin code >503:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-24B loopPrin code >504:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-24C loopPrin code >505:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-24D loopPrin code >506:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-24E loopPrin code >507:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-24F loopPrin code >508:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-250 loopPrin code >509:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-251 loopPrin code >510:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-252 loopPrin code >512:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-253 loopPrin code >513:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-254 loopPrin code >514:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-255 loopPrin code >515:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-256 loopPrin code >516:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-257 loopPrin code >517:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-258 loopPrin code >518:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-259 loopPrin code >519:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-25A loopPrin code >520:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-25B loopPrin code >521:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-25C loopPrin code >522:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-25D loopPrin code >523:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-25E loopPrin code >524:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-25F loopPrin code >526:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-25F loopPrin code >527:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-260 loopPrin code >528:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-261 loopPrin code >529:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-262 loopPrin code >530:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-263 loopPrin code >531:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-264 loopPrin code >532:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-265 loopPrin code >533:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-266 loopPrin code >534:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-267 loopPrin code >535:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
-268 loopPrin code >537:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+245 loopPrin code >498:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+245 loopPrin code >499:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+246 loopPrin code >500:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+247 loopPrin code >501:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+248 loopPrin code >502:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+249 loopPrin code >503:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+24A loopPrin code >504:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+24B loopPrin code >505:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+24C loopPrin code >507:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+24C loopPrin code >508:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+24D loopPrin code >509:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+24E loopPrin code >510:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+24F loopPrin code >511:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+250 loopPrin code >512:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+251 loopPrin code >513:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+252 loopPrin code >514:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+253 loopPrin code >515:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+254 loopPrin code >516:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+255 loopPrin code >517:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+256 loopPrin code >518:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+257 loopPrin code >519:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+258 loopPrin code >521:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+259 loopPrin code >522:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+25A loopPrin code >523:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+25B loopPrin code >524:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+25C loopPrin code >525:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+25D loopPrin code >526:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+25E loopPrin code >527:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+25F loopPrin code >528:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+260 loopPrin code >529:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+261 loopPrin code >530:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+262 loopPrin code >531:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+263 loopPrin code >532:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+264 loopPrin code >534:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+265 loopPrin code >535:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+266 loopPrin code >536:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+267 loopPrin code >537:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 268 loopPrin code >538:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 269 loopPrin code >539:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 26A loopPrin code >540:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 26B loopPrin code >541:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+26C loopPrin code >542:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+26D loopPrin code >543:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+26E loopPrin code >544:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+26F loopPrin code >545:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+270 loopPrin code >546:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+271 loopPrin code >548:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+271 loopPrin code >549:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+272 loopPrin code >550:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+273 loopPrin code >551:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+274 loopPrin code >552:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+275 loopPrin code >553:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+276 loopPrin code >554:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+277 loopPrin code >555:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+278 loopPrin code >556:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+279 loopPrin code >557:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+27A loopPrin code >559:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+27A loopPrin code >560:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+27B loopPrin code >561:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+27C loopPrin code >562:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
+27D loopPrin code >563:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 0 vectorINT code >144:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 4 vectorINT code >145:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
 4 vectorINT code >146:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores\Proyecto1Micros\P1.X\main.s
@@ -431,7 +451,7 @@ F vectorINT code >162:D:\UVG\UVG\UVG5toSemestre\PorgramacionDeMicrocontroladores
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__Hspace_0 26C 0 ABS 0 - -
+__Hspace_0 27E 0 ABS 0 - -
 __Hspace_1 72 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
@@ -469,7 +489,7 @@ __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
-__HloopPrin 4D8 0 code 0 loopPrin -
+__HloopPrin 4FC 0 code 0 loopPrin -
 S1TEMP 23 0 BANK0 1 udata_bank0 build/default/production/main.o
 S2TEMP 24 0 BANK0 1 udata_bank0 build/default/production/main.o
 S3TEMP 25 0 BANK0 1 udata_bank0 build/default/production/main.o
