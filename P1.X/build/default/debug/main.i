@@ -2636,6 +2636,12 @@ ORG 0004h
     BCF PIR1,1 ;limpia bandera timmer2
 
     INOCB:
+    MOVLW 0
+    XORWF BANDMODOS
+    BTFSS STATUS,2 ;mira si comienza en 0
+    GOTO $+3
+    BSF BANDMODOS,0 ;inicializa el primero en 0
+    GOTO pop
     BTFSS PORTB,0 ;mira si es cambio de modo
     BSF BANDERAS,6 ;Permite que se haga el RLF
     MOVF PORTB,W ;eliminar el mismatch
@@ -2780,12 +2786,7 @@ INDMODOS:
     CLRF BANDMODOS
     BSF BANDMODOS,0
     CLRF PORTB
-    MOVLW 0
-    XORWF BANDMODOS
-    BTFSS STATUS,2 ;mira si comienza en 0
-    GOTO $+2
-    BSF BANDMODOS,0 ;inicializa el primero en 0
-    BTFSC BANDMODOS,0 ;Mira que led indicador de modo tiene que colocar
+    BTFSC BANDMODOS,0
     BSF PORTB,3
     BTFSC BANDMODOS,1
     BSF PORTB,4

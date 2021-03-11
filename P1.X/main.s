@@ -70,9 +70,17 @@ UN2:		DS  1	    ;unidades del semaforo 2
 DIV3:		DS  1	    ;dividendo del semaforo 3
 DEC3:		DS  1	    ;decenas del semaforo 3
 UN3:		DS  1	    ;unidades del semaforo 3
+;-----------------------modos y alterar valores---------------------------------
+BANDMODOS:	DS  1	    ;bandera para manejar los distintos modos
+CAMBTEMP1:	DS  1	    ;adopta el valor a modificar del semaforo1
+CAMBTEMP2:	DS  1	    ;adopta el valor a modificar del semaforo2
+CAMBTEMP3:	DS  1	    ;adopta el valor a modificar del semaforo3
+DIVTEMPO:	DS  1	    ;dividendo temporal para la variable a cambiar
+DECTEMPO:	DS  1	    ;Decena del temporal modificando
+UNTEMPO:	DS  1	    ;unidades del temporal modificando
 ;Global para ver las variables en el simulador de MPLAB    
 GLOBAL	BANDERAS,MUX,CONT0,S1TEMP,S2TEMP,S3TEMP,S1RO,S2RO,S3RO,S1TI,S2TI,S3TI    
-GLOBAL	DEC1,UN1    
+GLOBAL	DEC1,UN1,BANDMODOS    
 ;------------------------------------Macros-------------------------------------
 configPuertos	MACRO	    ;configurar los puertos
     BANKSEL	ANSEL
@@ -96,6 +104,7 @@ configPuertos	MACRO	    ;configurar los puertos
     CLRF	MUX	;limpia el multiplexor
     BSF		MUX,0	;el primer bit encendido
     CLRF	CONT0	; limpiar la variable del timmer 0
+    CLRF	BANDMODOS   ;en 0 bandera de modos
     ENDM    
     
 configOSC	MACRO	;configurar el oscilador interno
@@ -119,11 +128,11 @@ configOSC	MACRO	;configurar el oscilador interno
 configINT	MACRO	;configurar interrupciones
     BANKSEL	INTCON
     BSF		INTCON,7	;habilitar interrupciones GIE
-    ;BSF		RBIE	;habilitar interrupciones de cambio en B
+    BSF		RBIE		;habilitar interrupciones de cambio en B
     BSF		INTCON,5	;habilitar interrupcion del TIMER0
     BSF		INTCON,6	;habilita interrupciones perifericas TIMER2
     BCF		INTCON,2	;apagar bandera TIMER0
-    ;BCF		RBIF	;apagar bandera de cambios en puerto B
+    BCF		RBIF		;apagar bandera de cambios en puerto B
     BANKSEL	PIE1
     BSF		PIE1,1		;habilita interrupciones TIMER2
     BANKSEL	PIR1
@@ -134,6 +143,18 @@ configINT	MACRO	;configurar interrupciones
 configT2    MACRO   ;configurar el timmer2
     MOVLW   0X0F
     MOVWF   T2CON   ;pre en 16, post en 16 y habilitado el timmer2
+    ENDM
+    
+configINTB	MACRO		;configurar pullup e interrupciones en B
+    BANKSEL	TRISA
+    BCF		OPTION_REG,7	;permite habilitar las pullup en B (RBPU)
+    MOVLW	0X07
+    MOVWF	WPUB	;Primeros dos pines de B en WeakPullup
+    MOVLW	0X07
+    MOVWF	IOCB	;primeros dos pines habilitados de intOnChange
+    BANKSEL	PORTA
+    MOVF	PORTB,W	;eliminar el mismatch
+    BCF		RBIF
     ENDM
 ;--------------------------------INICIO CODIGO----------------------------------
 Psect	vectorReset, class = CODE, delta = 2, abs
@@ -147,6 +168,8 @@ ORG 0004h
     SWAPF   STATUS,W	    ;sin alterar sus banderas
     MOVWF   STATUS_TEMP	
     
+    BTFSC   RBIF
+    GOTO    INOCB
     BTFSC   T0IF	    ;mira si es interrupcion del timmer0
     GOTO    TIE0
     GOTO    TIE2
@@ -162,6 +185,12 @@ ORG 0004h
     GOTO    pop
     BSF	    BANDERAS,1	;Bandera que indica que ya es tiempo de multiplexar
     BCF	    PIR1,1	;limpia bandera timmer2
+    
+    INOCB: 
+    BTFSS   PORTB,0	;mira si es cambio de modo
+    BSF	    BANDERAS,6	;Permite que se haga el RLF
+    MOVF    PORTB,W	;eliminar el mismatch
+    BCF	    RBIF	;elimina bandera del IOCB
     
     pop:
     SWAPF   STATUS_TEMP,W
@@ -199,6 +228,7 @@ main:
     configINT	    ;configurar las interrupciones
     configOSC	    ;configurar el oscilador
     configT2	    ;configurar el timmer2
+    configINTB	    ;configurar IOC del puerto B
     MOVLW   10	    ;colocar en 10 las variables iniciales de cambio
     MOVWF   S1CAM
     MOVWF   S2CAM
@@ -286,8 +316,38 @@ loop:
     BTFSC   BANDERAS,5
     CLRF    CONT2		;reinicia el contador luego de haber contado
     BCF	    BANDERAS,5		;Luego de hacer el toogle las apaga
+    BTFSC   BANDERAS,6		;mira si se hacer el cambio de modo
+    CALL    INDMODOS		;Colocar el modo en el puerto
     GOTO    loop
 
+INDMODOS:
+    BTFSS   PORTB,0
+    RETURN
+    BCF	    BANDERAS,6	;ya no permite el cambio de modo
+    BCF	    STATUS,0	;elimina el carry
+    RLF	    BANDMODOS
+    BTFSS   BANDMODOS,5	;Para que regrese al modo 1
+    GOTO    $+3
+    CLRF    BANDMODOS
+    BSF	    BANDMODOS,0
+    CLRF    PORTB
+    MOVLW   0
+    XORWF   BANDMODOS
+    BTFSS   STATUS,2	;mira si comienza en 0
+    GOTO    $+2
+    BSF	    BANDMODOS,0	;inicializa el primero en 0
+    BTFSC   BANDMODOS,0	;Mira que led indicador de modo tiene que colocar
+    BSF	    PORTB,3
+    BTFSC   BANDMODOS,1
+    BSF	    PORTB,4
+    BTFSC   BANDMODOS,2
+    BSF	    PORTB,5
+    BTFSC   BANDMODOS,3
+    BSF	    PORTB,6
+    BTFSC   BANDMODOS,4
+    BSF	    PORTB,7
+    RETURN
+    
 CARGAT0:
     BANKSEL TMR0    ;Precarga el valor de 217 al TM0
     MOVLW   99
@@ -301,14 +361,14 @@ S1TOOGE:
     RETURN
 
 S1TOOG:
-    BTFSC   PORTA,2
+    BTFSC   PORTA,2	;revisa si esta apagado o encendido y le hace toogle
     GOTO    $+4
-    BTFSC   BANDERAS,5
-    BSF	    PORTA,2
+    BTFSC   BANDERAS,5	;apaga el habilitar que haga toogle hasta que vuelva
+    BSF	    PORTA,2	   ;a pasar el tiempo estipulado en CONT2
     RETURN
     BTFSC   BANDERAS,5
     BCF	    PORTA,2
-    BCF	    PORTC,0
+    BCF	    PORTC,0	    ;para hacer parpadear al contador
     BCF	    PORTC,1
     RETURN
     
@@ -320,12 +380,12 @@ S2TOOGE:
 S2TOOG:
     BTFSC   PORTA,5
     GOTO    $+4
-    BTFSC   BANDERAS,5
-    BSF	    PORTA,5
+    BTFSC   BANDERAS,5	;apaga el habilitar que haga toogle hasta que vuelva
+    BSF	    PORTA,5	    ;a pasar el tiempo estipulado en CONT2
     RETURN
     BTFSC   BANDERAS,5
     BCF	    PORTA,5
-    BCF	    PORTC,2
+    BCF	    PORTC,2	    ;para hacer parpadear al contador
     BCF	    PORTC,3
     RETURN
 
@@ -337,12 +397,12 @@ S3TOOGE:
 S3TOOG:
     BTFSC   PORTE,2
     GOTO    $+4
-    BTFSC   BANDERAS,5
-    BSF	    PORTE,2
+    BTFSC   BANDERAS,5	    ;apaga el habilitar que haga toogle hasta que vuelva
+    BSF	    PORTE,2		;a pasar el tiempo estipulado en CONT2
     RETURN
     BTFSC   BANDERAS,5
     BCF	    PORTE,2
-    BCF	    PORTC,4
+    BCF	    PORTC,4	    ;para hacer parpadear al contador
     BCF	    PORTC,5
     RETURN
     
