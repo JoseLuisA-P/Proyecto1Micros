@@ -2601,15 +2601,15 @@ ORG 0004h
     GOTO TIE2
 
     TIE0:
-    INCF CONT0
-    INCF CONT2
+    INCF CONT0 ;contador para los segundos
+    INCF CONT2 ;contador para el parpadeo
     BCF ((INTCON) and 07Fh), 2
     call CARGAT0
 
     TIE2:
     BTFSS PIR1,1 ;Mira si es interrupcion del timer2
     GOTO pop
-    BSF BANDERAS,1
+    BSF BANDERAS,1 ;Bandera que indica que ya es tiempo de multiplexar
     BCF PIR1,1 ;limpia bandera timmer2
 
     pop:
@@ -2757,6 +2757,8 @@ S1TOOG:
     RETURN
     BTFSC BANDERAS,5
     BCF PORTA,2
+    BCF PORTC,0
+    BCF PORTC,1
     RETURN
 
 S2TOOGE:
@@ -2772,6 +2774,8 @@ S2TOOG:
     RETURN
     BTFSC BANDERAS,5
     BCF PORTA,5
+    BCF PORTC,2
+    BCF PORTC,3
     RETURN
 
 S3TOOGE:
@@ -2787,6 +2791,8 @@ S3TOOG:
     RETURN
     BTFSC BANDERAS,5
     BCF PORTE,2
+    BCF PORTC,4
+    BCF PORTC,5
     RETURN
 
 S1LAM:
