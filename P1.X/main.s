@@ -233,6 +233,9 @@ main:
     MOVWF   S1CAM
     MOVWF   S2CAM
     MOVWF   S3CAM
+    MOVWF   CAMBTEMP1
+    MOVWF   CAMBTEMP2
+    MOVWF   CAMBTEMP3
     GOTO    reinicio
     
 reinicio:
@@ -279,6 +282,8 @@ loop:
     CLRF    UN2
     CLRF    DEC3
     CLRF    UN3
+    CLRF    DECTEMPO
+    CLRF    UNTEMPO
     BTFSC   BANDERAS,0
     CALL    DIVISION	;llama la rutina de division de los numeros
     BTFSC   BANDERAS,0
@@ -509,12 +514,20 @@ MULTIPLEX:
     CALL    MULTI5
     BTFSC   MUX,5
     CALL    MULTI6
+    BTFSC   BANDMODOS,0	    ;Mira si es distinto a el modo
+    GOTO    $+7
+    BTFSC   MUX,6
+    CALL    MULTI7
+    BTFSC   MUX,7
+    CALL    MULTI8
+    BCF	    BANDERAS,0
+    RETURN
     BTFSC   MUX,6
     CLRF    PORTD
     BTFSC   MUX,7
     CLRF    PORTD
     BCF	    BANDERAS,0
-    RETURN
+    RETURN  
     
 MULTI1:
     CLRF    PORTC
@@ -568,6 +581,30 @@ MULTI6:
     MOVWF   PORTD
     MOVF    MUX,W
     MOVWF   PORTC
+    RETURN   
+    
+MULTI7:
+    CLRF    PORTC
+    BTFSS   BANDMODOS,4
+    MOVF    UNTEMPO,W
+    BTFSC   BANDMODOS,4
+    MOVLW   0X0C
+    CALL    tabla
+    MOVWF   PORTD
+    MOVF    MUX,W
+    MOVWF   PORTC
+    RETURN    
+    
+MULTI8:
+    CLRF    PORTC
+    BTFSS   BANDMODOS,4
+    MOVF    DECTEMPO,W
+    BTFSC   BANDMODOS,4
+    MOVLW   0X0A
+    CALL    tabla
+    MOVWF   PORTD
+    MOVF    MUX,W
+    MOVWF   PORTC
     RETURN      
     
 DIVISION:
@@ -609,6 +646,26 @@ DIVISION:
     ADDWF   DIV3,F
     MOVF    DIV3,W
     MOVWF   UN3		;el remanente se queda en las unidades
+;DIVISION DEL semaforo indicador
+    BTFSC   BANDMODOS,0	    ;si esta en modo 1 no divide nada
+    RETURN
+    BTFSC   BANDMODOS,1	    ;para cargar el valor del semaforo 1
+    MOVF    CAMBTEMP1,W
+    BTFSC   BANDMODOS,2	    ;para cargar el valor del semaforo 2
+    MOVF    CAMBTEMP2,W
+    BTFSC   BANDMODOS,3	    ;para cargar el valor del semaforo 3
+    MOVF    CAMBTEMP3,W
+    MOVWF   DIVTEMPO
+    INCF    DECTEMPO
+    MOVLW   10
+    SUBWF   DIVTEMPO,F
+    BTFSC   STATUS,0	;mira si no hay carry
+    GOTO    $-4		;si no hay vuelve a restar
+    DECF    DECTEMPO	;si hay carry le quita 1 porque se paso
+    MOVLW   10		;le suma 10 para que regrese al estado previo
+    ADDWF   DIVTEMPO,F
+    MOVF    DIVTEMPO,W
+    MOVWF   UNTEMPO		;el remanente se queda en las unidades
     RETURN
 
 ARREMUX:
