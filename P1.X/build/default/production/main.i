@@ -2692,6 +2692,19 @@ main:
     MOVWF CAMBTEMP3
     GOTO reinicio
 
+modificacion:
+    CLRF S1TEMP ;Reinicia las variables necesarias
+    CLRF S2TEMP
+    CLRF S3TEMP
+    CLRF BANDERAS
+    MOVF CAMBTEMP1,W ;Precarga los nuevos valores
+    MOVWF S1CAM
+    MOVF CAMBTEMP2,W ;Precarga los nuevos valores
+    MOVWF S2CAM
+    MOVF CAMBTEMP3,W ;Precarga los nuevos valores
+    MOVWF S3CAM
+    CALL REINICIO ;Reinicia los valores
+
 reinicio:
     MOVF S1CAM,W ;Carga el cambio de S1 a W y luego a temporal y conteo
     MOVWF S1TI
@@ -2787,6 +2800,8 @@ loop:
     GOTO loop
     BTFSC BANDERAS2,1 ;mira si es para cancelar
     CALL REINICIO
+    BTFSC BANDERAS2,0 ;mira si es para aceptar
+    GOTO modificacion
     GOTO loop
 
 REINICIO:
