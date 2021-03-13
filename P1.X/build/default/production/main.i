@@ -2487,6 +2487,7 @@ STATUS_TEMP: DS 1
 
 Psect udata_bank0
 BANDERAS: DS 1 ;Banderas para manejar los eventos
+BANDERAS2: DS 1 ;Mas banderas para manejar eventos
 MUX: DS 1 ;Manejar el multiplexado
 BANDTIEMPO: DS 1 ;Banderas para manejar el tiempo
 ;----------------------Variables asociadas a los semaforos----------------------
@@ -2638,6 +2639,10 @@ ORG 0004h
     INOCB:
     BTFSS PORTB,0 ;mira si es cambio de modo
     BSF BANDERAS,6 ;Permite que se haga el RLF
+    BTFSS PORTB,1 ;mira si es aumento/aceptar
+    BSF BANDERAS2,0 ;Se puede aumentar
+    BTFSS PORTB,2 ;Mira si es disminucion
+    BSF BANDERAS2,1 ;Se puede disminuir
     MOVF PORTB,W ;eliminar el mismatch
     BCF ((INTCON) and 07Fh), 0 ;elimina bandera del IOCB
 
@@ -2733,6 +2738,12 @@ loop:
     CLRF UN3
     CLRF DECTEMPO
     CLRF UNTEMPO
+    ;se modifican los valores temporales
+    BTFSC BANDERAS2,0 ;Mira si es aumento
+    CALL AUMTEMPO ;aumenta el valor temporal indicado
+    BTFSC BANDERAS2,1 ;Mira si es disminucion
+    CALL DISMTEMPO ;disminucion de el valor temporal indicado
+    ;-----------------------------------
     BTFSC BANDERAS,0
     CALL DIVISION ;llama la rutina de division de los numeros
     BTFSC BANDERAS,0
@@ -2965,13 +2976,13 @@ MULTIPLEX:
     CALL MULTI6
     BTFSC BANDMODOS,0 ;Mira si es distinto a el modo
     GOTO $+7
-    BTFSC MUX,6
+    BTFSC MUX,6 ;se muestra el valor que se modificara en el momento
     CALL MULTI7
     BTFSC MUX,7
     CALL MULTI8
     BCF BANDERAS,0
     RETURN
-    BTFSC MUX,6
+    BTFSC MUX,6 ;el indicador de los valores de cambio apagado
     CLRF PORTD
     BTFSC MUX,7
     CLRF PORTD
@@ -3132,6 +3143,80 @@ ARR_ROJO2:
     MOVF S3CAM,W ;Hasta este momento se carga el tiempo del semaforo 3
     ADDWF S2RO,F
     BCF BANDERAS,7 ;se coloca en 0 la descartable
+    RETURN
+
+AUMTEMPO:
+    BTFSS PORTB,1
+    RETURN
+    BTFSS BANDMODOS,1 ;Mira si es semaforo 1
+    GOTO $+6
+    INCF CAMBTEMP1,F ;Incrementa la temporal 1
+    MOVLW 21
+    XORWF CAMBTEMP1,W ;Mira si es 21
+    BTFSC STATUS,2 ;Mira si el valor es 21
+    CALL ARR20
+    BTFSS BANDMODOS,2 ;Mira si es semaforo 2
+    GOTO $+6
+    INCF CAMBTEMP2,F ;Incrementa la temporal 2
+    MOVLW 21
+    XORWF CAMBTEMP2,W ;Mira si es 21
+    BTFSC STATUS,2 ;Mira si el valor es 21
+    CALL ARR20
+    BTFSS BANDMODOS,3 ;Mira si es semaforo 2
+    GOTO $+6
+    INCF CAMBTEMP3,F ;Incrementa la temporal 2
+    MOVLW 21
+    XORWF CAMBTEMP3,W ;Mira si es 21
+    BTFSC STATUS,2 ;Mira si el valor es 21
+    CALL ARR20
+    BCF BANDERAS2,0 ;Elimina la bandera de aumento
+    RETURN
+
+DISMTEMPO:
+    BTFSS PORTB,2
+    RETURN
+    BTFSS BANDMODOS,1 ;Mira si es semaforo 1
+    GOTO $+6
+    DECF CAMBTEMP1,F ;DECREMENTA la temporal 1
+    MOVLW 9
+    XORWF CAMBTEMP1,W ;Mira si es 9
+    BTFSC STATUS,2 ;Mira si el valor es 9
+    CALL ARR10
+    BTFSS BANDMODOS,2 ;Mira si es semaforo 2
+    GOTO $+6
+    DECF CAMBTEMP2,F ;DECREMENTA la temporal 2
+    MOVLW 9
+    XORWF CAMBTEMP2,W ;Mira si es 9
+    BTFSC STATUS,2 ;Mira si el valor es 9
+    CALL ARR10
+    BTFSS BANDMODOS,3 ;Mira si es semaforo 3
+    GOTO $+6
+    DECF CAMBTEMP3,F ;DECREMENTA la temporal 3
+    MOVLW 9
+    XORWF CAMBTEMP3,W ;Mira si es 9
+    BTFSC STATUS,2 ;Mira si el valor es 9
+    CALL ARR10
+    BCF BANDERAS2,1 ;Elimina la bandera de decremento
+    RETURN
+
+ARR20:
+    MOVLW 10
+    BTFSC BANDMODOS,1 ;Mira si es el valor del semaforo 1 y lo coloca en 10
+    MOVWF CAMBTEMP1
+    BTFSC BANDMODOS,2 ;Mira si es el valor del semaforo 1 y lo coloca en 10
+    MOVWF CAMBTEMP2
+    BTFSC BANDMODOS,3 ;Mira si es el valor del semaforo 1 y lo coloca en 10
+    MOVWF CAMBTEMP3
+    RETURN
+
+ARR10:
+    MOVLW 20
+    BTFSC BANDMODOS,1 ;Mira si es el valor del semaforo 1 y lo coloca en 10
+    MOVWF CAMBTEMP1
+    BTFSC BANDMODOS,2 ;Mira si es el valor del semaforo 1 y lo coloca en 10
+    MOVWF CAMBTEMP2
+    BTFSC BANDMODOS,3 ;Mira si es el valor del semaforo 1 y lo coloca en 10
+    MOVWF CAMBTEMP3
     RETURN
 
 END
