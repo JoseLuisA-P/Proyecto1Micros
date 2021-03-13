@@ -2783,7 +2783,22 @@ loop:
     BCF BANDERAS,5 ;Luego de hacer el toogle las apaga
     BTFSC BANDERAS,6 ;mira si se hacer el cambio de modo
     CALL INDMODOS ;Colocar el modo en el puerto
+    BTFSS BANDMODOS,4 ;mira si es el modo 5
     GOTO loop
+    BTFSC BANDERAS2,1 ;mira si es para cancelar
+    CALL REINICIO
+    GOTO loop
+
+REINICIO:
+    MOVLW 10 ;coloca todas las temporales de nuevo en 10
+    MOVWF CAMBTEMP1
+    MOVWF CAMBTEMP2
+    MOVWF CAMBTEMP3
+    CLRF BANDMODOS ;Lo regresa al modo 0
+    BSF BANDMODOS,0
+    CLRF PORTB
+    BSF PORTB,3
+    RETURN
 
 INDMODOS:
     BTFSS PORTB,0
