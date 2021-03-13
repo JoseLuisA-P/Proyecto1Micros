@@ -2509,7 +2509,8 @@ S2RO: DS 1 ;tiempo en rojo de los semaforos 2
 S3RO: DS 1 ;tiempo en rojo de los semaforos 3
 ;--------------Variables para los contadores------------------------------------
 CONT0: DS 1 ;conteo del timmer 0
-CONT2: DS 1 ;conteo del timmer 2
+CONT2: DS 1 ;conteo del timmer 0 parpadeo
+CONTRE: DS 1 ;Variable para el conteo del inicio
 ;---------------DECENAS Y UNIDADES DEL CONTADOR---------------------------------
 DIV1: DS 1 ;dividendo del semaforo 1
 DEC1: DS 1 ;decenas del semaforo 1
@@ -2696,7 +2697,10 @@ modificacion:
     CLRF S1TEMP ;Reinicia las variables necesarias
     CLRF S2TEMP
     CLRF S3TEMP
-    CLRF BANDERAS
+    CLRF BANDERAS ;Reinicia las banderas y los contadores
+    CLRF BANDERAS2
+    CLRF CONT0
+    CLRF CONT2
     MOVF CAMBTEMP1,W ;Precarga los nuevos valores
     MOVWF S1CAM
     MOVF CAMBTEMP2,W ;Precarga los nuevos valores
@@ -2704,6 +2708,26 @@ modificacion:
     MOVF CAMBTEMP3,W ;Precarga los nuevos valores
     MOVWF S3CAM
     CALL REINICIO ;Reinicia los valores
+    MOVLW 0XFF
+    MOVWF PORTD
+    MOVWF PORTC
+    MOVWF PORTB
+    MOVWF PORTA
+    MOVWF PORTE
+    MOVLW 100
+    XORWF CONT0,W
+    BTFSS STATUS,2 ;mira si ya paso un segundo
+    GOTO $-3
+    CLRF CONT0
+    INCF CONTRE
+    MOVLW 5
+    XORWF CONTRE,W
+    BTFSS STATUS,2 ;Mira si ya paso 5 segundos
+    GOTO $-9
+    CLRF CONTRE
+    CLRF CONT0
+    CLRF PORTB
+    BSF PORTB,3 ;encender luz del modo
 
 reinicio:
     MOVF S1CAM,W ;Carga el cambio de S1 a W y luego a temporal y conteo
