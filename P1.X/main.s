@@ -283,7 +283,7 @@ loop:
     CALL    DIVISION	;llama la rutina de division de los numeros
     BTFSC   BANDERAS,0
     CALL    MULTIPLEX	;llama la rutina de multiplexado
-    MOVLW   3
+    MOVLW   3		;mira si ya es 3 en el semaforo y si esta en verde luego
     XORWF   S1TEMP,W
     BTFSC   STATUS,2
     CALL    S1LAM
@@ -295,7 +295,7 @@ loop:
     XORWF   S3TEMP,W
     BTFSC   STATUS,2
     CALL    S3LAM
-    MOVLW   6
+    MOVLW   6		;mira si es 6 en el semaforo y si este es en verde luego
     XORWF   S1TEMP,W
     BTFSC   STATUS,2
     CALL    S1TOOGE
