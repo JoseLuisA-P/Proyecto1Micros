@@ -271,7 +271,7 @@ modificacion:
     GOTO    $-3
     CLRF    CONT0
     INCF    CONTRE
-    MOVLW   5
+    MOVLW   3
     XORWF   CONTRE,W
     BTFSS   STATUS,2	    ;Mira si ya paso 5 segundos
     GOTO    $-9
