@@ -80,6 +80,10 @@ CAMBTEMP3:	DS  1	    ;adopta el valor a modificar del semaforo3
 DIVTEMPO:	DS  1	    ;dividendo temporal para la variable a cambiar
 DECTEMPO:	DS  1	    ;Decena del temporal modificando
 UNTEMPO:	DS  1	    ;unidades del temporal modificando
+;COLOR AMARILLO AGREGADO
+S1AMAR:		DS  1	    ;Temporal de amarillo
+S2AMAR:		DS  1	    ;Temporal de amarillo
+S3AMAR:		DS  1	    ;Temporal de amarillo    
 ;Global para ver las variables en el simulador de MPLAB    
 GLOBAL	BANDERAS,MUX,CONT0,S1TEMP,S2TEMP,S3TEMP,S1RO,S2RO,S3RO,S1TI,S2TI,S3TI    
 GLOBAL	DEC1,UN1,BANDMODOS    
@@ -295,6 +299,10 @@ reinicio:
     CLRF    BANDTIEMPO	    ;limpia las banderas de conteo en rojo
     BSF	    BANDTIEMPO,0    ;indica que el semaforo 1 comienza en verde
     BSF	    BANDERAS,7	    ;descartable para el rojo de 2
+    MOVLW   3
+    MOVWF   S1AMAR	    ;Carga el valor de 3 a amarillo 1
+    MOVWF   S2AMAR	    ;Carga el valor de 3 a amarillo 2
+    MOVWF   S3AMAR
     GOTO    loop
     
 loop:
@@ -480,6 +488,7 @@ S1LAM:
     BTFSC   BANDTIEMPO,0    ;mira si esta en VERDE
     RETURN
     BCF	    BANDERAS,2	    ;Desactiva el toogle
+    BSF	    BANDTIEMPO,3    ;Activa el amarillo
     BCF	    PORTA,2
     BSF	    PORTA,1
     BCF	    PORTA,0
@@ -489,6 +498,7 @@ S2LAM:
     BTFSC   BANDTIEMPO,1    ;mira si esta en VERDE
     RETURN
     BCF	    BANDERAS,3	    ;desactiva el toogle
+    BSF	    BANDTIEMPO,4    ;Activa el amarillo 2
     BCF	    PORTA,5
     BSF	    PORTA,4
     BCF	    PORTA,3
@@ -497,7 +507,8 @@ S2LAM:
 S3LAM:
     BTFSC   BANDTIEMPO,2    ;mira si esta en VERDE
     RETURN
-    BCF	    BANDERAS,4
+    BCF	    BANDERAS,4	    ;Desactiva el toogle 3
+    BSF	    BANDTIEMPO,5
     BCF	    PORTE,2
     BSF	    PORTE,1
     BCF	    PORTE,0
@@ -519,6 +530,9 @@ CARGARTEMP1:
     BCF	    PORTA,2	;Enciende el ROJO, apaga los demas
     BCF	    PORTA,1
     BSF	    PORTA,0
+    BCF	    BANDTIEMPO,3    ;apaga el modo amarillo
+    MOVLW   3
+    MOVWF   S1AMAR
     RETURN
     
 CARGARTEMP2:
@@ -539,6 +553,9 @@ CARGARTEMP2:
     BSF	    PORTA,3
     BTFSC   BANDERAS,7
     CALL    ARR_ROJO2
+    BCF	    BANDTIEMPO,4    ;apaga el modo amarillo
+    MOVLW   3
+    MOVWF   S2AMAR
     RETURN
 
 CARGARTEMP3:
@@ -557,12 +574,21 @@ CARGARTEMP3:
     BCF	    PORTE,2	;Enciende el verde, apaga los demas
     BCF	    PORTE,1
     BSF	    PORTE,0
+    BCF	    BANDTIEMPO,5    ;apaga el modo amarillo
+    MOVLW   3
+    MOVWF   S3AMAR
     RETURN
     
 REGRESIVO:
     DECF    S1TEMP
     DECF    S2TEMP
     DECF    S3TEMP
+    BTFSC   BANDTIEMPO,3
+    DECF    S1AMAR
+    BTFSC   BANDTIEMPO,4
+    DECF    S2AMAR
+    BTFSC   BANDTIEMPO,5
+    DECF    S3AMAR
     CLRF    CONT0
     RETURN
     
@@ -673,7 +699,15 @@ MULTI8:
     RETURN      
     
 DIVISION:
-    MOVF    S1TEMP,W	;Se divide primero el valor de semaforo 1
+    BTFSC   BANDTIEMPO,0    ;mira si es rojo o verde
+    GOTO    $+4
+    MOVLW   3
+    SUBWF   S1TEMP,W	;Se divide primero el valor de semaforo 1
+    GOTO    $+3
+    MOVF    S1TEMP,W
+    GOTO    $+3
+    BTFSC   BANDTIEMPO,3
+    MOVF    S1AMAR,W		;carga el valor de 3 a el semaforo
     MOVWF   DIV1
     INCF    DEC1
     MOVLW   10
@@ -686,7 +720,15 @@ DIVISION:
     MOVF    DIV1,W
     MOVWF   UN1		;el remanente se queda en las unidades
 ;DIVISION DEL SEGUNDO SEMAFORO
-    MOVF    S2TEMP,W	;Se divide primero el valor de semaforo 2
+    BTFSC   BANDTIEMPO,1    ;mira si es rojo o verde
+    GOTO    $+4
+    MOVLW   3
+    SUBWF   S2TEMP,W	;Se divide primero el valor de semaforo 1
+    GOTO    $+3
+    MOVF    S2TEMP,W
+    GOTO    $+3
+    BTFSC   BANDTIEMPO,4
+    MOVF    S2AMAR,W		;carga el valor de 3 a el semaforo
     MOVWF   DIV2
     INCF    DEC2
     MOVLW   10
@@ -699,7 +741,15 @@ DIVISION:
     MOVF    DIV2,W
     MOVWF   UN2		;el remanente se queda en las unidades
 ;DIVISION DEL TERCER SEMAFORO  
-    MOVF    S3TEMP,W	;Se divide primero el valor de semaforo 3
+    BTFSC   BANDTIEMPO,2    ;mira si es rojo o verde
+    GOTO    $+4
+    MOVLW   3
+    SUBWF   S3TEMP,W	;Se divide primero el valor de semaforo 1
+    GOTO    $+3
+    MOVF    S3TEMP,W
+    GOTO    $+3
+    BTFSC   BANDTIEMPO,5
+    MOVF    S3AMAR,W		;carga el valor de 3 a el semaforo
     MOVWF   DIV3
     INCF    DEC3
     MOVLW   10
