@@ -3,13 +3,47 @@
 ;   Autor: Jose Luis Alvarez Pineda
 ;   Archivo: main.s
 ;   Fecha de creacion: 9 de marzo de 2021
-;   modificacion: 9 de marzo de 2021
+;   modificacion: 25 de marzo de 2021
 ;   Dispositivo: PIC16F887
 ;   Descripcion:
-/* 
+/* Semaforo de 3 vias el cual se puede controlar en base a tiempos establecidos
+    por el usuario. Estos tiempos oscilaran entre 10 y 20 segundos, cada 
+    semaforo funciona acorde a 2 estados dando via o en rojo, y el estado de via
+    tiene el modo de verde y verde titilante y luego amarillo. El tiempo de 
+    verde y verde titilante es independiente del de amarillo y rojo. Todos los
+    semaforos van a dar a una sola via de salida, al reinicio siempre comienza 
+    en el semaforo 1 y al realizar cambios sucede lo mismo. El semaforo cuenta
+    con 5 modos, en 3 de ellos se modifica el valor al cual va a contar los
+    semaforos y en 1 de ellos funciona normal, en el ultimo se puede aceptar o 
+    cancelar los cambios en el tiempo y en todos los modos los semaforos siguen
+    funcionando sin detenerse, solamente se reinician al aceptar los cambios.
+    Los tiempos de via y rojo son indicados en displays en pares los cuales
+    son individuales para cada semaforo y luego se tiene una pareja de displays 
+    los cuales muestran el valor que se modificara y cargara a un semaforo.
     */    
 ;   Hardware:
-/*  
+/*  Puerto A:
+    A0-A2: luz roja, amarilla y verde del semaforo 1
+    A3-A5: luz roja, amarilla y verde del semaforo 2
+    
+    Puerto B:
+    B0: boton que cambia el modo
+    B1: boton para aumentar el valor/ aceptar el cambio
+    B2: boton para disminuir el valor/ rechazar el cambio
+    B3-B7: indicador del modo 1 al modo 5 en leds.
+     
+    Puerto C: Todos estos puertos son utilizados para multiplexar los displays
+    C0-C1: displays semaforo 1
+    C2-C3: displays semaforo 2
+    C4-C5: displays semaforo 3
+    C6-C7: displays indicador de valores del semaforo
+     
+    Puerto D:
+    De 0 a 7 se sacan los valores de A a H utilizados por los displays 
+    al ser multiplexados
+     
+    Puerto E:
+    E0-E2: luz roja, amarilla y verde del semaforo 3
      */
 ;-------------------------------------------------------------------------------
 PROCESSOR 16F887
